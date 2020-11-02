@@ -20,7 +20,6 @@ public class Bank {
         BankAccount bankAccount1 = new BankAccount(owner, accountNumber, balance);
         System.out.println(bankAccount1.getInfo());
 
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Adja meg a 2. számlanyitó nevét.");
         String owner2 = scanner.nextLine();
