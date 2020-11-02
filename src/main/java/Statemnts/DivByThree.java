@@ -11,3 +11,4 @@ public class DivByThree {
         System.out.println(i % 3 == 0 ? "Osztható hárommal" : "Nem osztható hárommal" );
     }
 }
+
