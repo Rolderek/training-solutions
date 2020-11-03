@@ -7,12 +7,7 @@ public class Investment {
     private int interestRate;
     private boolean active;
 
-    Investment investment = new Investment() {
-        this.cost = cost;
-        this.found = found;
-        this.interestRate = interestRate;
-        this.active = active;
-    }
+    Investment investment = new Investment();
 
     public double getCost() {
         return cost;
