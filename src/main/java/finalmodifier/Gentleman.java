@@ -2,7 +2,7 @@ package finalmodifier;
 
 public class Gentleman {
 
-    private static final String  MESSAGE_PREFIX = "Helló ";
+    public static final String  MESSAGE_PREFIX = "Helló ";
     private String name;
     public Gentleman gentleman =new Gentleman();{
          this.name = name;
