@@ -1,8 +1,5 @@
 package finalmodifier;
 
-import java.security.PublicKey;
-import java.util.Scanner;
-
 public class Gentleman {
 
     private static final String  MESSAGE_PREFIX = "Helló ";
