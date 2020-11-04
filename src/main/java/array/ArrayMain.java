@@ -7,44 +7,35 @@ public class ArrayMain {
         System.out.println(dayName[1]);
         System.out.println(dayName.length);
 
-        boolean[] tf = {false, true, false, true, false };
+
+        int[] powersOfTwo = new int[5];
+        powersOfTwo[0] = 1;
+        for (int i = 1; i < powersOfTwo.length; i++) {
+            powersOfTwo[i] = powersOfTwo[i - 1] * 2;
+        }
+
+        for (int i = 0; i < powersOfTwo.length; i++) {
+            System.out.print(powersOfTwo[i] + " " );
+        }
+
+        System.out.println();
+
+        boolean[] tf = new boolean[6];
+        for (int i = 1; i < tf.length; i++) {
+            tf[i] = tf[i - 1];
+        }
         for (int i = 0; i < tf.length; i++) {
-            System.out.println(i);
+            System.out.print(tf[i] + " ");
         }
+        System.out.println();
 
-        /* átnézni!!!!!!!megérteni alaposan!!!!
-        public boolean contains(int[] source, int itemToFind) {
-        for (int item : source) {
-            if (item == itemToFind) {
-                return true;
-            }
-        }
-        return false;
     }
-
-    public int find(int[] source, int itemToFind) {
-        for (int i = 0; i < source.length; i++) {
-            if (source[i] == itemToFind) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public static void main(String[] args) {
-        ArrayHandler arrayHandler = new ArrayHandler();
-
-        final int[] testArray = new int[]{1, 3, 5, 10};
-
-        System.out.println("contains");
-        System.out.println(arrayHandler.contains(testArray, 8));
-        System.out.println(arrayHandler.contains(testArray, 5));
-
-        System.out.println("find");
-        System.out.println(arrayHandler.find(testArray, 8));
-        System.out.println(arrayHandler.find(testArray, 5));
-    }
-         */
-    }
-
 }
+
+
+
+
+
+
+
+
