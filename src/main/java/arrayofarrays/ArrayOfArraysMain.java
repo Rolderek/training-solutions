@@ -2,6 +2,16 @@ package arrayofarrays;
 
 public class ArrayOfArraysMain {
 
+    /*
+    public int[] mutilicationTable(int size) {
+        for (int i = 0; i < size; i++) {
+
+        }
+    */
+
+
+    //puskából kinézve a kommentesek
+    /*
     public void printArrayOfArrays(int[][] a) {
         for (int i[] : a) {
             for (int j : i) {
@@ -60,4 +70,6 @@ public class ArrayOfArraysMain {
         System.out.println("Values per days");
         arrayOfArraysMain.printArrayOfArrays(arrayOfArraysMain.getValues());
     }
+
+     */
 }
