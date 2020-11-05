@@ -3,10 +3,10 @@ package finalmodifier;
 public class Gentleman {
 
     public static final String  MESSAGE_PREFIX = "Helló ";
-    private String name;
-    public Gentleman gentleman =new Gentleman();{
+
+    /*public Gentleman gentleman =new Gentleman();{
          this.name = name;
-    }
+    } */
 
 
     public void sayHello(String name) {
@@ -15,9 +15,9 @@ public class Gentleman {
 
     public static void main(String[] args) {
 
-        Gentleman gentleman1 = new Gentleman();
+        Gentleman gentleman = new Gentleman();
 
-        System.out.println(Gentleman.sayHello("Laci"));
+        //System.out.println(Gentleman.sayHello("Laci"));
 
 
 
