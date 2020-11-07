@@ -13,9 +13,9 @@ public class Controller {
         scanner.nextLine();
 
         ArrayList<MeetingRoom> MeetingRoom = new ArrayList<>() ;
-        for (int i = 1; i <= meetingRoomNumbers; i++) {
-            addMeetingRoom();
-        }
+        //for (int i = 1; i <= meetingRoomNumbers; i++) {
+      //
+        //}
         System.out.println();
     }
 
