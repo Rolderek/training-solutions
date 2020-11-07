@@ -12,7 +12,7 @@ public class Controller {
         int meetingRoomNumbers = scanner.nextInt();
         scanner.nextLine();
 
-        ArrayList<String> MeetingRoom = new ArrayList<>() ;
+        ArrayList<MeetingRoom> MeetingRoom = new ArrayList<>() ;
         for (int i = 1; i <= meetingRoomNumbers; i++) {
             addMeetingRoom();
         }
