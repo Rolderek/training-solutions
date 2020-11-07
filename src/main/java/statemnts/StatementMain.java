@@ -1,6 +1,4 @@
-package Statemnts;
-
-import java.beans.Statement;
+package statemnts;
 
 public class StatementMain {
 

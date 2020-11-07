@@ -1,4 +1,4 @@
-package Packages;
+package packages;
 
 public class Trainer {
 }

@@ -1,4 +1,4 @@
-package Statemnts;
+package statemnts;
 
 import java.util.Scanner;
 

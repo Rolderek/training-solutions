@@ -1,4 +1,4 @@
-package Note;
+package note;
 
 public class Note {
 

@@ -1,4 +1,4 @@
-package Investment;
+package investment;
 
 public class Investment {
 

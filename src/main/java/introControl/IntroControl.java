@@ -1,6 +1,4 @@
-package IntroControl;
-
-import java.util.Random;
+package introControl;
 
 public class IntroControl {
 
@@ -31,7 +29,7 @@ public class IntroControl {
         }
     }
 
-public int calculateBonus(int sale) { }
+//public int calculateBonus(int sale) { }
 }
 
 
