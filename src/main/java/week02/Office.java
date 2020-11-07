@@ -16,10 +16,10 @@ public class Office {
         System.out.println("Add meg a tárgyaló hosszát:");
         int length = scanner.nextInt();
         scanner.nextLine();
-        System.out.println("add meg a tárgyaló szélességét:");
+        System.out.println("Add meg a tárgyaló szélességét:");
         int wigth = scanner.nextInt();
         scanner.nextLine();
         MeetingRoom meetingRoom = new MeetingRoom();
 
-    }
+        }
 }
