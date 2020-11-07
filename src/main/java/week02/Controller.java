@@ -7,7 +7,7 @@ public class Controller {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Szia! Hány tárgyalót szeretnél megadni?");
+        System.out.println("Hány tárgyalót szeretnél megadni?");
 
         int meetingRoomNumbers = scanner.nextInt();
 
