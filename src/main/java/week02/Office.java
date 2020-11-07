@@ -8,7 +8,7 @@ public class Office {
 
     Scanner scanner = new Scanner(System.in);
 
-    private List<String> MeetingRoom = new ArrayList<>();
+    private List<String>  MeetingRoom= new ArrayList<>();
 
     public void addMeetingRoom() {
         System.out.println("Add meg a tárgyaló nevét:");
@@ -20,6 +20,7 @@ public class Office {
         int wigth = scanner.nextInt();
         scanner.nextLine();
         MeetingRoom meetingRoom = new MeetingRoom();
-
-        }
+    }
 }
+
+
