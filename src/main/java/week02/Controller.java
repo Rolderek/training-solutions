@@ -1,5 +1,7 @@
 package week02;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,13 +9,12 @@ public class Controller {
 
     private Office office;
 
-    public void runMenu() {
-
-    }
 
     public static void main(String[] args) {
         Controller controller = new Controller();
         controller.readOffice();
+        controller.printMenu();
+        controller.runMenu();
     }
 
         public void readOffice() {
@@ -37,11 +38,14 @@ public class Controller {
                 scanner.nextLine();
                 office.addMeetingRoom(new MeetingRoom(name, length, width));
             }
-        }
+    }
 
-    // controller.printMenu();
-    // controller.runMenu();
+    public void printMenu() {
 
+    }
 
+    public void runMenu() {
+
+    }
 }
 

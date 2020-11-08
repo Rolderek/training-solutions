@@ -11,18 +11,18 @@ public class Office {
         private List<MeetingRoom> meetingRoom = new ArrayList<>();
 
         public void addMeetingRoom(MeetingRoom meetingRoom) {
-            this.meetingRoom.add(meetingRoom);
+                this.meetingRoom.add(meetingRoom);
         }
 
-        public void printName() {
-
-        }
-
-        public void printNameReverse() {
+        public void printNames() {
 
         }
 
-        public void printEventName() {
+        public void printNamesReverse() {
+
+        }
+
+        public void printEventNames() {
 
         }
 
@@ -30,18 +30,19 @@ public class Office {
 
         }
 
-        public String printMeetingRoomsWithName() {
+        public void printMeetingRoomsWithName(String name) {
 
         }
 
-        public String printMeetingRoomsContains() {
+        public void printMeetingRoomsContains(String reszlet) {
 
         }
 
-        public int printAreasLargerThan() {
+        public void printAreasLargerThan(int area) {
+
+        }
+
+        public void printMethodResult(MeetingRoom meetingRoom) {
 
         }
 }
-
-
-
