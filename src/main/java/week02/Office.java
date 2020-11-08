@@ -20,9 +20,9 @@ public class Office {
             int length = scanner.nextInt();
             scanner.nextLine();
             System.out.println("Add meg a tárgyaló szélességét:");
-            int wigth = scanner.nextInt();
+            int width = scanner.nextInt();
             scanner.nextLine();
-            MeetingRoom meetingRoom = new MeetingRoom();
+            MeetingRoom meetingRoom = new MeetingRoom(name, length, width);
         }
     }
 
