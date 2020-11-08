@@ -39,10 +39,13 @@ public class Controller {
             office.printMeetingRoomsWithName(name);
         } else if (menuPont == 6) {
             System.out.println("Add meg keresett karaktereket:");
-            String name = scanner.nextLine();
-            office.printMeetingRoomsContains(name);
+            String part = scanner.nextLine();
+            office.printMeetingRoomsContains(part);
         } else if (menuPont == 7) {
-            //System.out.println(printAreasLargerThan());
+            System.out.println("Add meg a térgyaló területét:");
+            int area = scanner.nextInt();
+            scanner.nextLine();
+            office.printAreasLargerThan(area);
         } else System.out.println("Nemlétező menüpontot választottál, kérlek az alábbiakból váélassz:");
         //runMenu();
     }

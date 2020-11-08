@@ -1,5 +1,6 @@
 package week02;
 
+import java.lang.invoke.MethodType;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -33,8 +34,9 @@ public class Office {
         }
 
         public void printAreas() {
+                int i = 0;
                 for (MeetingRoom meetingRoom: meetingRoom) {
-                        System.out.println("Tárgyaló neve: " + meetingRoom.getName() + ", Tárgyaló hossza: " + meetingRoom.getLength() + ", Trágyaló szélessége: " + meetingRoom.getWidth() + ", Tárgyaló területe: " + meetingRoom.getArea() + "m\u00B2");
+                        System.out.println("Tárgyaló neve: " + meetingRoom.getName() + ", Tárgyaló hossza: " + meetingRoom.getLength() + ", Trágyaló szélessége: " + meetingRoom.getWidth() + ", Tárgyaló területe: " + meetingRoom.getArea() + "m\u00B2.");
                 }
         }
 
@@ -46,19 +48,23 @@ public class Office {
                 }
         }
 
-        public void printMeetingRoomsContains(String reszlet) {
+        public void printMeetingRoomsContains(String part) {
+                boolean talalat = false;
+                int i = 0;
                 for (MeetingRoom meetingRoom : meetingRoom) {
-                        if (meetingRoom.getName().toLowerCase().contains(name.toLowerCase)) {
+                        if (meetingRoom.getName().toLowerCase().contains(part.toLowerCase())) {
                                 System.out.println("Tárgyaló neve: " + meetingRoom.getName() + ", Tárgyaló hossza: " + meetingRoom.getLength() + ", Trágyaló szélessége: " + meetingRoom.getWidth() + ", Tárgyaló területe: " + meetingRoom.getArea() + "m\u00B2");
+                                talalat = true; i++;
                         }
                 }
+                System.out.println(talalat ?  i + " Találat.": "Nem volt találat.");
         }
 
         public void printAreasLargerThan(int area) {
-
+        for (MeetingRoom meetingRoom : meetingRoom) {
+                if(meetingRoom.getArea() > area) {
+                        System.out.println("Tárgyaló neve: " + meetingRoom.getName() + ", Tárgyaló hossza: " + meetingRoom.getLength() + ", Trágyaló szélessége: " + meetingRoom.getWidth() + ", Tárgyaló területe: " + meetingRoom.getArea() + "m\u00B2");
+                }
         }
-
-        public void printMethodResult(MeetingRoom meetingRoom) {
-
         }
 }
