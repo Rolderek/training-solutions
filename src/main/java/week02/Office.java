@@ -6,25 +6,42 @@ import java.util.Scanner;
 
 public class Office {
 
-
-
-
         Scanner scanner = new Scanner(System.in);
 
-        private List<MeetingRoom> MeetingRoom = new ArrayList<>();
+        private List<MeetingRoom> meetingRoom = new ArrayList<>();
 
-        public void addMeetingRoom() {
-            System.out.println("Add meg a tárgyaló nevét:");
-            String name = scanner.nextLine();
-            System.out.println("Add meg a tárgyaló hosszát:");
-            int length = scanner.nextInt();
-            scanner.nextLine();
-            System.out.println("Add meg a tárgyaló szélességét:");
-            int width = scanner.nextInt();
-            scanner.nextLine();
-            MeetingRoom meetingRoom = new MeetingRoom(name, length, width);
+        public void addMeetingRoom(MeetingRoom meetingRoom) {
+            this.meetingRoom.add(meetingRoom);
         }
-    }
+
+        public void printName() {
+
+        }
+
+        public void printNameReverse() {
+
+        }
+
+        public void printEventName() {
+
+        }
+
+        public void printAreas() {
+
+        }
+
+        public String printMeetingRoomsWithName() {
+
+        }
+
+        public String printMeetingRoomsContains() {
+
+        }
+
+        public int printAreasLargerThan() {
+
+        }
+}
 
 
 

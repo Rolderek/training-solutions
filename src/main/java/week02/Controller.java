@@ -5,21 +5,42 @@ import java.util.Scanner;
 
 public class Controller {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    private Office office;
 
-        System.out.println("Hány tárgyalót szeretnél megadni?");
-        int meetingRoomNumbers = scanner.nextInt();
-        scanner.nextLine();
+    public void runMenu() {
 
-        ArrayList<MeetingRoom> MeetingRoom = new ArrayList<>() ;
-        for (int i = 1; i <= meetingRoomNumbers; i++) {
-            addMeetingRoom();
-        }
-        System.out.println();
     }
 
-    
+    public static void main(String[] args) {
+        Controller controller = new Controller();
+        controller.readOffice();
+    }
+
+        public void readOffice() {
+            office = new Office();
+
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.println("Hány tárgyalót szeretnél megadni?");
+            int meetingRoomNumbers = scanner.nextInt();
+            scanner.nextLine();
+
+            for (int i = 0; i < meetingRoomNumbers; i++) {
+
+                System.out.println("Add meg a tárgyaló nevét:");
+                String name = scanner.nextLine();
+                System.out.println("Add meg a tárgyaló hosszát:");
+                int length = scanner.nextInt();
+                scanner.nextLine();
+                System.out.println("Add meg a tárgyaló szélességét:");
+                int width = scanner.nextInt();
+                scanner.nextLine();
+                office.addMeetingRoom(new MeetingRoom(name, length, width));
+            }
+        }
+
+    // controller.printMenu();
+    // controller.runMenu();
 
 
 }
