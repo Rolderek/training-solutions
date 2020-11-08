@@ -44,7 +44,6 @@ public class Controller {
             scanner.nextLine();
             office.printAreasLargerThan(area);
         } else System.out.println("Nemlétező menüpontot választottál, kérlek az alábbiakból váélassz:");
-        //runMenu();
     }
     public void readOffice() {
         office = new Office();
