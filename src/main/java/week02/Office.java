@@ -47,7 +47,11 @@ public class Office {
         }
 
         public void printMeetingRoomsContains(String reszlet) {
-
+                for (MeetingRoom meetingRoom : meetingRoom) {
+                        if (meetingRoom.getName().toLowerCase().contains(name.toLowerCase)) {
+                                System.out.println("Tárgyaló neve: " + meetingRoom.getName() + ", Tárgyaló hossza: " + meetingRoom.getLength() + ", Trágyaló szélessége: " + meetingRoom.getWidth() + ", Tárgyaló területe: " + meetingRoom.getArea() + "m\u00B2");
+                        }
+                }
         }
 
         public void printAreasLargerThan(int area) {

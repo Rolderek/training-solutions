@@ -38,7 +38,9 @@ public class Controller {
             String name = scanner.nextLine();
             office.printMeetingRoomsWithName(name);
         } else if (menuPont == 6) {
-            //System.out.println(printMeetingRoomsContains());
+            System.out.println("Add meg keresett karaktereket:");
+            String name = scanner.nextLine();
+            office.printMeetingRoomsContains(name);
         } else if (menuPont == 7) {
             //System.out.println(printAreasLargerThan());
         } else System.out.println("Nemlétező menüpontot választottál, kérlek az alábbiakból váélassz:");
@@ -55,12 +57,12 @@ public class Controller {
 
         for (int i = 0; i < meetingRoomNumbers; i++) {
 
-            System.out.println("Add meg a tárgyaló nevét:");
+            System.out.println("Add meg a(z)" + (i + 1) + ". tárgyaló nevét:");
             String name = scanner.nextLine();
-            System.out.println("Add meg a tárgyaló hosszát:");
+            System.out.println("Add meg a(z)" + (i + 1) + ". tárgyaló hosszát:");
             int length = scanner.nextInt();
             scanner.nextLine();
-            System.out.println("Add meg a tárgyaló szélességét:");
+            System.out.println("Add meg a(z)" + (i + 1) + ". tárgyaló szélességét:");
             int width = scanner.nextInt();
             scanner.nextLine();
             office.addMeetingRoom(new MeetingRoom(name, length, width));
