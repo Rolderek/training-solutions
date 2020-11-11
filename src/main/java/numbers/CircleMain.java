@@ -19,6 +19,10 @@ public class CircleMain {
         System.out.println("1. kör területe: " + circle1.area());
         System.out.println("2. kör kerülete: " + circle2.perimeter());
         System.out.println("2. kör területe: " + circle2.area());
+
+        int a = 10;
+        double b = (15 - a) / 2 * (double) 3;
+        System.out.println(b);
     }
 }
 
