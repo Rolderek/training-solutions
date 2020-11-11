@@ -29,6 +29,12 @@ public class OperatorsMain {
         System.out.println(16 << 1); //ez a szorzom kettővel
         System.out.println(13 >> 1); //ugyan az csak kerekítve
         System.out.println(13 << 1);
+
+        int x = 5;
+        int y = 2;
+        //ez a buzi sorban megy nem nézi hogy melyik a magasabb rangú művelet...
+        int z = x++ +(x - 4) * y -2;
+        System.out.println(x++);
     }
 
 }
