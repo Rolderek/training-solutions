@@ -33,7 +33,11 @@ public class Pi {
 
 
     public static void main(String[] args) {
-        System.out.println(PiVers);
+        int number = 5;
+        while(number < 20) {
+            number += 3;
+            System.out.println(number);
+        }
     }
 
 }
