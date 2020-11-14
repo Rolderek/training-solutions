@@ -6,7 +6,7 @@ public class Trainer {
     private int yearOfBirth;
 
 
-    public Trainer(String name, int yearOfBirth) {
+   public Trainer(String name, int yearOfBirth) {
         this.name = name;
         this.yearOfBirth = yearOfBirth;
     }
@@ -24,7 +24,7 @@ public class Trainer {
     }
 
     public void setName(String name) {
-        this.name = name;
+        name = "Jhon Doe";
     }
 
     public int getYearOfBirth() {
