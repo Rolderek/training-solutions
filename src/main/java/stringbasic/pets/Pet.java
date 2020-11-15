@@ -1,18 +1,34 @@
 package stringbasic.pets;
 
+import java.time.LocalDate;
+
 public class Pet {
 
     private String name;
-    private String localDate;
-    private String gender;
+    private LocalDate dateOfBirth;
+    private Gender gender;
     private String regNumber;
 
-    public Pet(String name, String localDate, String gender, String regNumber) {
+    public Pet(String name, LocalDate dateOfBirth, Gender gender, String regNumber) {
         this.name = name;
-        this.localDate = localDate;
+        this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.regNumber = regNumber;
+    }
 
+    public String getName() {
+        return name;
+    }
 
+    public LocalDate getdateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public String getRegNumber() {
+        return regNumber;
     }
 }
