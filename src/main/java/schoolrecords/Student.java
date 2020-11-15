@@ -17,12 +17,14 @@ public class Student {
         return Math.round(sumAverage / marks.size() * 100) / 100.0;
     }
 
-    public calculateSubjectAverage() {
+ /*   public calculateSubjectAverage() {
         double subAverage;
         for () {
 
         }
     }
+
+  */
 
      public equals() {
         boolean e;
@@ -30,7 +32,7 @@ public class Student {
 
 
 
-    public Student(String name) {
+  /*  public Student(String name) {
         this.name = name;
     }
 
