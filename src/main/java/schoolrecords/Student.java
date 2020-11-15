@@ -16,6 +16,7 @@ public class Student {
         }
         return Math.round(sumAverage / marks.size() * 100) / 100.0;
     }
+}
 
  /*   public calculateSubjectAverage() {
         double subAverage;
@@ -26,13 +27,13 @@ public class Student {
 
   */
 
-     public equals() {
+/*    public equals() {
         boolean e;
      }
 
 
 
-  /*  public Student(String name) {
+    public Student(String name) {
         this.name = name;
     }
 
@@ -40,3 +41,4 @@ public class Student {
         return name;
     }
 }
+*/
