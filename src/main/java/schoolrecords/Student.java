@@ -16,18 +16,18 @@ public class Student {
         }
         return Math.round(sumAverage / marks.size() * 100) / 100.0;
     }
-}
 
- /*   public calculateSubjectAverage() {
+
+    public calculateSubjectAverage() {
         double subAverage;
         for () {
 
         }
     }
 
-  */
 
-/*    public equals() {
+
+    public equals() {
         boolean e;
      }
 
@@ -41,4 +41,3 @@ public class Student {
         return name;
     }
 }
-*/
