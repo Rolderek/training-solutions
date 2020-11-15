@@ -44,7 +44,7 @@ public class ClassRecords {
                 studentNum++;
             }
         }
-        return Math.round((studentsSum / studentNum) * 100 / 100.0);
+        return Math.round((studentsSum / studentNum) * 100) / 100.0;
     }
 
     public double calculateClassAverageBySubject(Subject subject) {
@@ -56,7 +56,7 @@ public class ClassRecords {
                 studentNum++;
             }
         }
-        return Math.round((studentsSum / studentNum) * 100 / 100.0);
+        return Math.round((studentsSum / studentNum) * 100) / 100.0;
     }
 
 
