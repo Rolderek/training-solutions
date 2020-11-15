@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-/*
+
 
 public class StudentTest {
 
@@ -89,5 +89,4 @@ public class StudentTest {
         //Then
         assertEquals(0.0, student.calculateSubjectAverage(new Subject("földrajz")));
     }
-
-    */
+}

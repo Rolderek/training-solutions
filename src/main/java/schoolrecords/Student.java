@@ -9,6 +9,18 @@ public class Student {
 
     private String name;
 
+    public Student(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void grading(Mark mark) {
+        marks.add(mark);
+    }
+
     public double calculateAverage() {
         double sumAverage = 0.0;
         for (Mark mark : marks) {
@@ -18,26 +30,33 @@ public class Student {
     }
 
 
-    public calculateSubjectAverage() {
-        double subAverage;
-        for () {
-
+    public double calculateSubjectAverage(Subject subject) {
+        double markSum = 0.0;
+        int markNum = 0;
+        for (Mark mark : marks) {
+            if (mark.getSubject().getSubjectName().equals(subject.getSubjectName())) {
+                markSum += mark.getMarkType().getValue();
+                markNum++;
+            }
         }
+        return Math.round((markSum / markNum) * 100 / 100.0);
+    }
+
+    private boolean isEmpty(String str) {
+        return str == null || "".equals(str.trim());
+    }
+
+    @Override
+    public String toString() {
+        String messages = getName();
+        for (int i = 0; i < marks.size(); i++) {
+            messages += "marks: " + marks.get(i).getSubject().getSubjectName()
+                    + ": " + marks.get(i).getMarkType().getDescription()
+                    + "(" + marks.get(i).getMarkType().getValue() + ")";
+        }
+        return messages;
     }
 
 
-
-    public equals() {
-        boolean e;
-     }
-
-
-
-    public Student(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
 }
+
