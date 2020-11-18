@@ -14,22 +14,21 @@ public class ClassRecords {
 
 
     public ClassRecords(String className, Random rnd) {
+        if (isEmpty(className)) {
+            throw new NullPointerException("Class name must not be empty!");
+        }
         this.className = className;
         this.rnd = rnd;
     }
 
     public boolean addStudent(Student student) {
-        boolean found = false;
         for (Student student1 : students) {
             if (student1.getName().equals(student.getName())) {
-                found = true;
-               break;
+                return false;
             }
         }
-        if (!found) {
-            students.add(student);
-        }
-        return found;
+        students.add(student);
+        return true;
     }
 
     public double calculateClassAverage() {
@@ -70,14 +69,25 @@ public class ClassRecords {
     }
 
     public Student findStudentByName(String name) {
+        if (isEmpty(name)) {
+            throw new IllegalArgumentException("Student name must not be empty!");
+        }
+        if (students.size() == 0 ) {
+            throw new IllegalStateException("No students to search!");
+        }
         Student foundStudent = null;
         for (Student student : students) {
             if (name.equals(student.getName())) {
                 foundStudent = student;
                 break;
             }
+
         }
-        return foundStudent;
+        if (foundStudent == null) {
+            throw new IllegalArgumentException("Student by this name cannot be found! " + name);
+        } else {
+            return foundStudent;
+        }
     }
 
     public String listStudentNames() {

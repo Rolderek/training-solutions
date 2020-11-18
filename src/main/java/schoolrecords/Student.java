@@ -10,6 +10,9 @@ public class Student {
     private String name;
 
     public Student(String name) {
+        if (isEmpty(name)) {
+            throw new IllegalArgumentException("Student name must not be empty!");
+        }
         this.name = name;
     }
 
