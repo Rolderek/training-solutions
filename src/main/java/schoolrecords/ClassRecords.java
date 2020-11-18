@@ -2,6 +2,7 @@ package schoolrecords;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 public class ClassRecords {
@@ -41,6 +42,8 @@ public class ClassRecords {
             if (student.calculateAverage() > 0) {
                 studentsSum += student.calculateAverage();
                 studentNum++;
+            } else {
+                throw new ArithmeticException("No marks present, average calculation aborted!");
             }
         }
         return Math.round((studentsSum / studentNum) * 100) / 100.0;
@@ -55,7 +58,8 @@ public class ClassRecords {
                 studentNum++;
             }
         }
-        return Math.round((studentsSum / studentNum) * 100) / 100.0;
+        return Double.parseDouble(String.format(Locale.US, "%.2f", studentsSum/studentNum));
+        //return Math.round((studentsSum / studentNum) * 100) / 100.0;
     }
 
 
@@ -120,6 +124,9 @@ public class ClassRecords {
     }
 
     public Student repetition() {
+        if (students.size() == 0) {
+            throw new IllegalStateException("No students to select for repetition!");
+        }
         return students.get(rnd.nextInt(students.size()));
     }
 

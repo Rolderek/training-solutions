@@ -21,6 +21,9 @@ public class Student {
     }
 
     public void grading(Mark mark) {
+        if (mark == null) {
+            throw new NullPointerException("Mark must not be null!");
+        }
         marks.add(mark);
     }
 
@@ -42,7 +45,7 @@ public class Student {
                 markNum++;
             }
         }
-        return Math.round((markSum / markNum) * 100 / 100.0);
+        return Math.round((markSum / markNum) * 100) / 100.0;
     }
 
     private boolean isEmpty(String str) {
@@ -53,7 +56,7 @@ public class Student {
     public String toString() {
         String messages = getName();
         for (int i = 0; i < marks.size(); i++) {
-            messages += "marks: " + marks.get(i).getSubject().getSubjectName()
+            messages += " marks: " + marks.get(i).getSubject().getSubjectName()
                     + ": " + marks.get(i).getMarkType().getDescription()
                     + "(" + marks.get(i).getMarkType().getValue() + ")";
         }
