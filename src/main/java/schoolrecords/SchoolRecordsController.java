@@ -51,6 +51,43 @@ public class SchoolRecordsController {
                 "Add meg a menüpontot:");
     }
 
+    public MarkType findMarkType(int sMark) {
+        for (MarkType markType : MarkType.values()) {
+            if (markType.getValue() == sMark) {
+                return markType;
+            }
+        }
+        return null;
+    }
+
+    public Subject sSubjectWorker() {
+
+        System.out.println("Tantárgy neve: ");
+
+        String selection = scanner.nextLine();
+        Subject sSubject = null;
+        for (int i = 0; i < subjects.size(); i++) {
+            if (selection.toLowerCase().equals(subjects.get(i).getSubjectName().toLowerCase())) {
+                sSubject = subjects.get(i);
+            }
+        }
+        return sSubject;
+    }
+
+
+    public String sTeacherWorker() {
+        System.out.println("Tanár neve: ");
+        String selection = scanner.nextLine();
+        String sTeacher = null;
+        for (int i = 0; i < tutors.size(); i++) {
+            if (selection.toLowerCase().equals(tutors.get(i).getName().toLowerCase())) {
+                sTeacher = tutors.get(i).toString();
+            }
+        }
+        return sTeacher;
+    }
+
+
     public void runMenu() {
         startMenu();
         int menuPont;
@@ -99,9 +136,9 @@ public class SchoolRecordsController {
 
     public void menu2() {
         try {
-           if (cr.listStudentNames() != null) {
-               findStudent("keresendő");
-           }
+            if (cr.listStudentNames() != null) {
+                findStudent("keresendő");
+            }
         } catch (StringIndexOutOfBoundsException sioobe) {
             System.out.println("Nincs diák az osztályban, kérem válassza a hármas menüpontot.");
         }
@@ -118,9 +155,10 @@ public class SchoolRecordsController {
 
     public void menu4() {
         try {
-            //findStudent("törlendő");
             System.out.println("Adja meg a törölni kívánt diák nevét:");
-            cr.removeStudent(cr.findStudentByName(scanner.nextLine()));
+            Student student = cr.findStudentByName(scanner.nextLine());
+            System.out.println(student);
+            cr.removeStudent(student);
         } catch (IllegalArgumentException iae) {
             System.out.println("Nem található ilyen nevű tanuló az osztályban.");
         }
@@ -128,28 +166,44 @@ public class SchoolRecordsController {
 
     public void menu5() {
         try {
-            Student felelő = cr.repetition();
+            Student whoRepetition = cr.repetition();
+            System.out.println("Felel a következő diák: " + whoRepetition.getName());
+            System.out.println("Kapott osztályzat: ");
+            MarkType sMarkType = findMarkType(Integer.parseInt(scanner.nextLine()));
+            if (sMarkType == null) {
+                System.out.println("Hibás osztályzat, kérem javítsa!");
+                sMarkType = findMarkType(Integer.parseInt(scanner.nextLine()));
+            }
+            Subject sSubject = sSubjectWorker();
 
-        } catch (Exception e) {
-
+            String sTeacher = sTeacherWorker();
+            whoRepetition.grading(new Mark(sMarkType, sSubject, new Tutor(sTeacher, Arrays.asList(sSubject))));
+            System.out.println("Felelet rögzítve: " + whoRepetition.getName() + " nevű diák "
+                    + sSubject.getSubjectName() + " tantárgyból "
+                    + sTeacher + " tanártól az alábbi osztályzatot kapta: "
+                    + sMarkType.getValue() + " Értékelése: " + sMarkType.getDescription()
+            );
+        } catch (IllegalStateException ise) {
+            System.out.println("Hiba történt, kezdje újra az utolsó műveletet. " + ise.getMessage());
+            runMenu();
         }
     }
 
     public void menu6() {
         try {
             System.out.println(cr.calculateClassAverage());
-        } catch (StringIndexOutOfBoundsException sioobe) {
-            System.out.println("Nincsenek talunlók vagy jegyei a tanulóknak az osztályban!");
+        } catch (ArithmeticException ae) {
+            System.out.println("Nem tudtuk kiszámolni az átlagot: " + ae.getMessage());
         }
     }
 
     public void menu7() {
         try {
             System.out.println("Melyik tárgyból szeretnék kiszámolni az átlagot?");
-            String tárgy = scanner.nextLine();
-            //System.out.println(cr.calculateClassAverageBySubject(tárgy));
-        } catch (Exception e) {
-
+            Subject sub = new Subject(scanner.nextLine());
+            System.out.println(cr.calculateClassAverageBySubject(sub));
+        } catch (IllegalStateException ise) {
+            System.out.println("");
         }
     }
 
@@ -166,8 +220,8 @@ public class SchoolRecordsController {
     public void menu9() {
         try {
             System.out.println("Add meg a tanuló nevét:");
-            String tanuló = scanner.nextLine();
-            System.out.println(cr.findStudentByName(tanuló).getName() + " " + cr.findStudentByName(tanuló).calculateAverage());
+            String tanulo = scanner.nextLine();
+            System.out.println(cr.findStudentByName(tanulo).getName() + " " + cr.findStudentByName(tanulo).calculateAverage());
         } catch (IllegalStateException ise) {
             System.out.println("Hibát talál a program: " + ise.getMessage());
         }
@@ -175,9 +229,12 @@ public class SchoolRecordsController {
 
     public void menu10() {
         try {
-
-        } catch (Exception e) {
-
+            System.out.println("Add meg a tanuló nevét:");
+            String tanulo = scanner.nextLine();
+            Subject sSubject = sSubjectWorker();
+            System.out.println(cr.findStudentByName(tanulo).getName() + " "  + sSubject.getSubjectName() + " átlaga: " + cr.findStudentByName(tanulo).calculateSubjectAverage(sSubject));
+        } catch (NullPointerException npe) {
+            System.out.println("Hibát talál a program: " + npe.getMessage());
         }
     }
 

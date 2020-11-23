@@ -33,7 +33,7 @@ public class ClassRecords {
     }
 
     public double calculateClassAverage() {
-        if (students.size() == 0) {
+        if (students.isEmpty()) {
             throw new ArithmeticException("No student in the class, average calculation aborted!");
         }
         double studentsSum = 0.0;
@@ -112,11 +112,14 @@ public class ClassRecords {
     }
 
     public boolean removeStudent(Student student) {
+        if (student == null) {
+            throw new NullPointerException("Student most be provided!");
+        }
         boolean found = false;
         for (Student student1 : students) {
             if (student1.getName().toLowerCase().equals(student.getName().toLowerCase())) {
                 found = true;
-                students.remove(students);
+                students.remove(student1);
                 break;
             }
         }
