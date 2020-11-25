@@ -17,7 +17,7 @@ public class ChangeLetter {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < workWith.toLowerCase().length(); i++) {
             String k = workWith.substring(i, i + 1);
-            if (VOWELS_TO_CHANGE.contains(k)) {
+            if (VOWELS_TO_CHANGE.toLowerCase().contains(k)) {
                 builder.append(REPLACE);
             } else  {
                 builder.append(k);
@@ -35,6 +35,6 @@ public class ChangeLetter {
 
         System.out.println("adj meg egy szöveget:");
         String workWithTo = scanner.nextLine();
-        changeVowels(workWithTo);
+        changeVowels(workWithTo.toLowerCase());
     }
 }
