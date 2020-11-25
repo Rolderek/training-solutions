@@ -11,7 +11,7 @@ public class ChangeLetter {
     private static final String REPLACE = "*";
 
 
-    Scanner scanner = new Scanner(System.in);
+
 
     public static String changeVowels(String workWith) {
         StringBuilder builder = new StringBuilder();
@@ -29,6 +29,12 @@ public class ChangeLetter {
     }
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
         changeVowels("apacukafundalukacocalola");
+
+        System.out.println("adj meg egy szöveget:");
+        String workWithTo = scanner.nextLine();
+        changeVowels(workWithTo);
     }
 }
