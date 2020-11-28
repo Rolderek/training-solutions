@@ -16,6 +16,18 @@ public class User {
         this.email = email;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getFullName() {
+        return getFirstName() + " " + getLastName();
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -28,17 +40,14 @@ public class User {
 
         System.out.println("Add meg az email címed:");
         String email = scanner.nextLine();
-        if (email.contains("@")) {
-            System.out.println("Létező emailcímet adtál meg.");
-        } else {
-            System.out.println("Helytelken az email cím!");
+        if (!email.contains("@") || !email.contains(".")) {
+            throw new IllegalArgumentException("Hibás az email cím!");
         }
 
         User user = new User(firstName, lastName, email);
 
-        System.out.println(user.toString());
-        System.out.println(user.firstName);
-        System.out.println(user.lastName);
+
+        System.out.println(user.getFullName());
         System.out.println(user.email);
 
     }
