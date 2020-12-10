@@ -1,4 +1,4 @@
-package introheritance.trainer;
+package introheritance;
 
 import java.util.ArrayList;
 import java.util.List;

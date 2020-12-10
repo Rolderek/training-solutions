@@ -1,4 +1,4 @@
-package introheritance.trainer;
+package introheritance;
 
 public class Human {
 
