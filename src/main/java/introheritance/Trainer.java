@@ -11,6 +11,11 @@ public class Trainer extends Human {
         return courses;
     }
 
+    @Override
+    public int getAge() {
+        return super.getAge() - courses.size();
+    }
+
     public void setCourses(List<Course> courses) {
         this.courses = courses;
     }

@@ -5,7 +5,7 @@ public class Employee extends Human {
     private double salary;
 
     public Employee(String name, String address, double sallary) {
-        super(name, address);
+        //super(name, address);
         this.salary = sallary;
     }
 
