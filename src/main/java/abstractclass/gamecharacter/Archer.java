@@ -7,8 +7,8 @@ public class Archer extends Character{
     private int numberOfArrow = 100;
 
 
-    public Archer(Point position, int hitPoint, Random random, int numberOfArrow) {
-        super(position, hitPoint, random);
+    public Archer(Point position, Random random, int numberOfArrow) {
+        super(position, random);
     }
 
     public int getNumberOfArrow() {
