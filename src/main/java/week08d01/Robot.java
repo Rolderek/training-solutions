@@ -4,43 +4,42 @@ import java.util.InputMismatchException;
 
 public class Robot {
 
-    private int x;
-    private int y;
+    private Position pos = new Position(0, 0);
+
     private String input = "FFLLLLLBBBBJJJJJJJ";
 
-    public int getX() {
-        return x;
-    }
 
-    public int getY() {
-        return y;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int move(String input) {
-        for (int i = 0; i < input.length(); i++) {
-            if (input.charAt(i) == 'F') {
-                setX(i);
-            }
-            else if (input.charAt(i) == 'L') {
-                 setX(i);
-            }
-            else if (input.charAt(i) == 'J') {
-                setY(i);
-            }
-            else if (input.charAt(i) == 'B') {
-                setX(i);
-            }
-            else {
-                throw new IllegalArgumentException("Nincs ilyen utasítás")
-            }
+    public Position move(String input) {
+        for (int i = 0; i <input.length(); i++) {
+            mouveOneStep(input.charAt(i));
         }
+        return this.pos;
+    }
+
+    private void mouveOneStep(char letter) {
+        switch (letter) {
+            case 'F': {
+                pos.increaseY();
+                return;
+            }
+            case 'L': {
+                pos.decreaseY();
+                return;
+            }
+            case 'J': {
+                pos.increaseX();
+                return;
+            }
+            case 'B': {
+                pos.decreaseX();
+                return;
+            }
+            default:
+                throw new IllegalArgumentException("Ismeretlen lépés!");
+        }
+    }
+
+    public Position getPos() {
+        return pos;
     }
 }
