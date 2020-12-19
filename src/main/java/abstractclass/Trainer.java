@@ -20,10 +20,12 @@ public class Trainer extends Human {
         this.courses = courses;
     }
 
-    @Override
+    /*@Override
     public int getFreeTime() {
         return super.getFreeTime() - courses.size();
     }
+
+     */
 
     @Override
     public void work() {

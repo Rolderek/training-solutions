@@ -8,7 +8,7 @@ public class TrainerTest {
 
     @Test
     public void testCreate() {
-        Trainer trainer = new Trainer();
+       // Trainer trainer = new Trainer();
         //assertThat(trainer.getName(), equalTo(null));
     }
 }
