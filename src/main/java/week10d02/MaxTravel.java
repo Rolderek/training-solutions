@@ -7,19 +7,27 @@ import java.util.List;
 public class MaxTravel {
 
     public int getMaxIndex(List<Integer> numbers) {
+       int[] counters = count(numbers);
+        return max(counters);
+    }
+
+    private int[] count(List<Integer> numbers) {
         int[] counters = new int[30];
         for (int i: numbers) {
             counters[i]++;
         }
-
-        int index = 0;
-        for (int i = 0; i < counters.length; i++) {
-            if (counters[index] < counters[i]) {
-                index = i;
-            }
+        return counters;
         }
-        return index;
-    }
+
+        private  int max(int[] counters) {
+            int index = 0;
+            for (int i = 0; i < counters.length; i++) {
+                if (counters[index] < counters[i]) {
+                    index = i;
+                }
+            }
+            return index;
+        }
 
     public static void main(String[] args) {
         int max = new MaxTravel().getMaxIndex(List.of(3, 3,12,12,0,3,4,4,12 ));
