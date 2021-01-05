@@ -1,7 +1,6 @@
 package week10d02;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.List;
 
 public class MaxTravel {
@@ -28,6 +27,7 @@ public class MaxTravel {
             }
             return index;
         }
+
 
     public static void main(String[] args) {
         int max = new MaxTravel().getMaxIndex(List.of(3, 3,12,12,0,3,4,4,12 ));
