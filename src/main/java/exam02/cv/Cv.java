@@ -29,8 +29,12 @@ public class Cv {
         return skill;
     }
 
-    public Cv addSkill(List<Skill> skillsToAdd, String name, int level) {
-        new Skill(name, level);
+    public void addSkills() {
+
+
+    }
+
+    public void findSkillLevelByName() {
 
     }
 

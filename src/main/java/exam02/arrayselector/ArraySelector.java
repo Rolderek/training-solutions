@@ -9,6 +9,10 @@ public class ArraySelector {
         for (int i = 0; i < numbers.length; i = i +2 ) {
             sum += numbers[i];
         }
-
+        String s=String.valueOf(sum);
+        s = "[" + s + "]";
+        return s;
     }
+
+
 }
