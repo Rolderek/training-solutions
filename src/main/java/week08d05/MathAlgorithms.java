@@ -1,8 +1,7 @@
 package week08d05;
 
-import java.util.List;
-
 public class MathAlgorithms {
+
 
     public int greatestCommonDivisorFirst(int one, int two) {
         if (one < 1 || two < 1) {
@@ -40,6 +39,15 @@ public class MathAlgorithms {
         }
         return 1;
     }
-
+// csak úgy működik ha előre írom a nagyobbat máshogy minusz számot ad!
+    public int greatestCommonDivisorFouth (int a, int b) {
+        int x = a;
+        int y = b;
+        int c = y;
+        while (x % c != 0 || y % c != 0) {
+            c++;
+        }
+        return c;
+    }
 
 }
