@@ -15,6 +15,15 @@ public class TrainerReader {
     public List<Trainer> read() {
         List<Trainer> trainers = new ArrayList<>();
         String line;
+        //a finally ág helyett a try fejébe tettük a buffered readert hogy majd bezárhassa azt
+        //try() { -lenne alapból vagyis egyben:
+        //BufferedReader reader = new BufferedReader(new StringReader(values));
+        //try () {
+        //  while ((line = reader.readLine()) != null) {
+        //      Trainer trainer = parseLine(line);
+        //          trainers.add(trainer);
+        //           }
+        //        }
         try  (BufferedReader reader = new BufferedReader(new StringReader(values))) {
             while ((line = reader.readLine()) != null) {
                 Trainer trainer = parseLine(line);
