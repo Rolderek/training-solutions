@@ -39,13 +39,13 @@ public class MathAlgorithms {
         }
         return 1;
     }
-// csak úgy működik ha előre írom a nagyobbat máshogy minusz számot ad!
+// már jó csak nem értem iért c-- kell a végére!
     public int greatestCommonDivisorFouth (int a, int b) {
         int x = a;
         int y = b;
         int c = y;
         while (x % c != 0 || y % c != 0) {
-            c++;
+            c--;
         }
         return c;
     }
