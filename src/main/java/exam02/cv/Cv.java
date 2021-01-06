@@ -26,7 +26,10 @@ public class Cv {
         return skills;
     }
 
-    public void addSkills(String... nSkill) {
+    public void addSkills(List<Skill> nSkill) {
+        for (Skill skill: nSkill) {
+            skills.add(skill);
+        }
 
     }
 
