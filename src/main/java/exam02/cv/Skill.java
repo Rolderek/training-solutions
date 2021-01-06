@@ -5,9 +5,9 @@ public class Skill {
     private String name;
     private int level;
 
-    public Skill(String name, int slevel) {
+    public Skill(String name, int level) {
         this.name = name;
-        this.level = slevel;
+        this.level = level;
     }
 
     public String getName() {
@@ -16,5 +16,10 @@ public class Skill {
 
     public int getLevel() {
         return level;
+    }
+
+    @Override
+    public String toString() {
+        return name + " (" + level + ")";
     }
 }

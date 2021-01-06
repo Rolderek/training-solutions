@@ -6,10 +6,11 @@ import java.util.List;
 public class Cv {
 
     private String name;
-    private List<Skill> skills = new ArrayList<>();
+    private List<Skill> skills;
 
     public Cv(String name) {
         this.name = name;
+        skills = new ArrayList<>();
     }
 
     public Cv(String name, List<Skill> skill) {
@@ -20,27 +21,41 @@ public class Cv {
 
     public String getName() {
         return name;
+
     }
 
     public List<Skill> getSkills() {
-        return skills;
+        return new ArrayList<>(skills);
     }
 
-    public void addSkills(List<Skill> nSkill) {
-        for (Skill skill: nSkill) {
-            skills.add(skill);
+    public void addSkills(String... nSkill) {
+        for (String i: nSkill) {
+            String[] j = i.split(" \\(");
+            this.skills.add(new Skill(j[0], Integer.parseInt(j[1].replace(")", ""))));
         }
-
     }
 
-    public void findSkillLevelByName(Cv c, String a) {
-        if (c.getSkills() == null || c.getSkills().isEmpty()) {
-            throw new SkillNotFoundException("Skill not found", a);
+    public int findSkillLevelByName(String skillN) {
+        for (Skill i: skills) {
+            if (i.getName().equals(skillN)) {
+                return i.getLevel();
+            }
         }
+        throw new SkillNotFoundException("Nem található a keresett elem." + skillN);
+    }
 
+    /*public boolean findSkillByName(String stringToFind) {
+        for (Skill skill: skills) {
+            if (skill.getName().contains(stringToFind)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 
+
+     */
 
 
 
