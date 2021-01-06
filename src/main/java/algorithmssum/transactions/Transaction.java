@@ -15,6 +15,7 @@ public class Transaction {
     public boolean isCredit() {
         return transactionOperation == TransactionOperation.CREDIT;
     }
+
     public boolean isDebit() {
         return transactionOperation == TransactionOperation.DEBIT;
     }
