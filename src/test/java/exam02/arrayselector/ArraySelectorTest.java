@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ArraySelectorTest {
-/*
+
     @Test
     public void selectEvens() {
         assertEquals("", new ArraySelector().selectEvens(new int[]{}));
@@ -18,5 +18,5 @@ public class ArraySelectorTest {
     }
 
 
- */
+
 }

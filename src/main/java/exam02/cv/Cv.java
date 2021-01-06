@@ -6,7 +6,7 @@ import java.util.List;
 public class Cv {
 
     private String name;
-    private List<Skill> skill = new ArrayList<>();
+    private List<Skill> skill;
 
     public Cv(String name) {
         this.name = name;
@@ -29,16 +29,13 @@ public class Cv {
         return skill;
     }
 
-    /*public List<Skill> addSkill(Skill skills) {
-        skill.add(skills);
-        this.skill = skill;
-    }
-*/
+    public Cv addSkill(List<Skill> skillsToAdd, String name, int level) {
+        new Skill(name, level);
 
-    public static void main(String[] args) {
-        Cv cv = new Cv("Laci");
-        System.out.println(cv);
     }
+
+
+
 
 
 
