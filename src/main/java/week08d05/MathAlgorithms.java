@@ -39,7 +39,7 @@ public class MathAlgorithms {
         }
         return 1;
     }
-// megvan, kell az a kávé reggelre!
+// megvan, kell az a kávé reggelre! és nem kellenek a segédváltozók sem csak egy.
     public int greatestCommonDivisorFouth (int a, int b) {
         int x = a;
         int y = b;
@@ -49,5 +49,6 @@ public class MathAlgorithms {
         }
         return c;
     }
+
 
 }
