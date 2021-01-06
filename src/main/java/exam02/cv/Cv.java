@@ -34,8 +34,11 @@ public class Cv {
 
     }
 
-    public void findSkillLevelByName() {
-
+    public void findSkillLevelByName(Cv c, String a) {
+        if (c.getSkills() == null || c.getSkills().isEmpty()) {
+            throw new SkillNotFoundException("Skill not found", a);
+        }
+        for ()
     }
 
 
