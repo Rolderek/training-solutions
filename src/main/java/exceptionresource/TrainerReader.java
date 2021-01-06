@@ -12,7 +12,7 @@ public class TrainerReader {
 
     private String values;
 
-   /* public List<Trainer> read() {
+    public List<Trainer> read() {
         List<Trainer> trainers = new ArrayList<>();
         String line;
         try  (BufferedReader reader = new BufferedReader(new StringReader(values))) {
@@ -28,8 +28,8 @@ public class TrainerReader {
     }
 
     private Trainer parseLine(String line) {
-        String fields = line.split(SEPARATOR);
-        if (fields.length() != 2) {
+        String[] fields = line.split(SEPARATOR);
+        if (fields.length != 2) {
             throw new IllegalArgumentException("Invalid line: " + line);
         }
         if (fields[0].length() == 0) {
@@ -38,6 +38,6 @@ public class TrainerReader {
         return new Trainer(fields[0], Integer.parseInt(fields[1]));
     }
 
-    */
+
 
 }
