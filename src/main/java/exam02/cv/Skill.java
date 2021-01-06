@@ -5,9 +5,9 @@ public class Skill {
     private String name;
     private int level;
 
-    public Skill(String name, int level) {
+    public Skill(String name, int slevel) {
         this.name = name;
-        this.level = level;
+        this.level = slevel;
     }
 
     public String getName() {

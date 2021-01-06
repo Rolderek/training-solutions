@@ -6,7 +6,7 @@ import java.util.List;
 public class Cv {
 
     private String name;
-    private List<Skill> skill;
+    private List<Skill> skills = new ArrayList<>();
 
     public Cv(String name) {
         this.name = name;
@@ -14,23 +14,19 @@ public class Cv {
 
     public Cv(String name, List<Skill> skill) {
         this.name = name;
-        this.skill = skill;
+        this.skills = skill;
     }
 
-    public Cv(List<Skill> skill) {
-        this.skill = skill;
-    }
 
     public String getName() {
         return name;
     }
 
     public List<Skill> getSkills() {
-        return skill;
+        return skills;
     }
 
-    public void addSkills() {
-
+    public void addSkills(String... nSkill) {
 
     }
 
@@ -38,7 +34,7 @@ public class Cv {
         if (c.getSkills() == null || c.getSkills().isEmpty()) {
             throw new SkillNotFoundException("Skill not found", a);
         }
-        for ()
+
     }
 
 
