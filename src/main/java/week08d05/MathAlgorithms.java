@@ -39,7 +39,7 @@ public class MathAlgorithms {
         }
         return 1;
     }
-// már jó csak nem értem iért c-- kell a végére!
+// megvan, kell az a kávé reggelre!
     public int greatestCommonDivisorFouth (int a, int b) {
         int x = a;
         int y = b;
