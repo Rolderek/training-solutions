@@ -4,9 +4,9 @@ import java.util.List;
 
 public class Course {
 
-    private List<String> courses;
+    private String name;
 
-    public Course(List<String> courses) {
-        this.courses = courses;
+    public Course(String name) {
+        this.name = name;
     }
 }
