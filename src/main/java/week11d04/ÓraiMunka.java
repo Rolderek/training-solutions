@@ -4,7 +4,7 @@ public class ÓraiMunka {
 
     public void printNumber(int i) {
         if (i < 0) {
-            throw new IllegalArgumentException("Must be < 0");
+            throw new IllegalArgumentException("Must be > 0");
         }
     }
 }
