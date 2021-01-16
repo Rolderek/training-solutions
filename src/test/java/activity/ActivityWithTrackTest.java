@@ -11,8 +11,7 @@ public class ActivityWithTrackTest {
 
     Track track = new Track();
     Activity activityWithTrack = new ActivityWithTrack(
-            track, ActivityType.RUNNING
-    );
+            track, ActivityType.RUNNING );
 
     @Test
     public void testGetDistance() {
@@ -30,4 +29,6 @@ public class ActivityWithTrackTest {
     public void testGetType() {
         assertEquals(ActivityType.RUNNING, activityWithTrack.getType());
     }
+
+
 }
