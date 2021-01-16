@@ -19,14 +19,12 @@ public class Track {
     public Coordinate findMaximumCoordinate() {
         double maxLo = trackPointList.get(0).getCoordinate().getLongitude();
         double maxLa = trackPointList.get(0).getCoordinate().getLatitude();
-        for (TrackPoint trackpoints: trackPointList) {
-            double lo = trackpoints.getCoordinate().getLongitude();
-            double la = trackpoints.getCoordinate().getLatitude();
-            if (la < maxLa) {
-                maxLa = la;
+        for (TrackPoint trackp: trackPointList) {
+            if (trackp.getCoordinate().getLatitude() > maxLa) {
+                maxLa = trackp.getCoordinate().getLatitude();
             }
-            if (lo > maxLo) {
-                maxLo = lo;
+            if (trackp.getCoordinate().getLongitude() > maxLo) {
+                maxLo = trackp.getCoordinate().getLongitude();
             }
         }
         return new Coordinate(maxLa, maxLo);
@@ -49,15 +47,22 @@ public class Track {
     }
 
     public double getRectangleArea() {
-        Coordinate min = findMinimumCoordinate();
-        Coordinate max = findMaximumCoordinate();
-
-        return max.getLatitude() - min.getLatitude() *
-                max.getLongitude() - min.getLongitude();
+        double rectangleArea = (findMaximumCoordinate().getLatitude() - findMinimumCoordinate().getLatitude())
+                * (findMaximumCoordinate().getLongitude() - findMinimumCoordinate().getLongitude());
+        return rectangleArea;
     }
 
     public double getFullElevation() {
         double elevationSum = 0;
+
+        for (int i = 0; i < trackPointList.size() - 1; i++) {
+            if (trackPointList.get(i + 1).getElevation() > trackPointList.get(i).getElevation()) {
+                elevationSum += (trackPointList.get(i + 1).getElevation() - trackPointList.get(i).getElevation());
+            }
+
+        }
+        return elevationSum;
+
         //foreach-el
         /*
         TrackPoint prev = trackPointList.get(0);
@@ -70,8 +75,9 @@ public class Track {
         return elevationSum;
         }
 
-        lásfd alábbi metódus
-         */
+        //lásfd alábbi metódus
+
+
         for (int i = 0; i < trackPointList.size() - 1; i++) {
             TrackPoint actual = trackPointList.get(i);
             TrackPoint next = trackPointList.get(i + 1);
@@ -79,7 +85,7 @@ public class Track {
                 elevationSum += actual.elevationDifference(next);
             }
         }
-        return elevationSum;
+        */
     }
 
     public double getFullDecrease() {
@@ -95,13 +101,11 @@ public class Track {
     }
 
     public double getDistance() {
-        double sum = 0;
-        TrackPoint prev = trackPointList.get(0);
-        for (TrackPoint actual: trackPointList) {
-            sum += prev.getDistacnceFrom(actual);
-            prev = actual;
+        double result = 0.0;
+        for (int i = 1; i < trackPointList.size(); i++) {
+            result += trackPointList.get(i).getDistanceFrom(trackPointList.get(i - 1));
         }
-        return sum;
+        return result;
     }
 
 
