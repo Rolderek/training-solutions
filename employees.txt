@@ -1,4 +1,3 @@
-Jhon Doe, 200000
-Jane Doe, 200000
-Jack Doe, 200000
-Árvíztûrõ Tökürfúrógép, 200000
+JÃ¡nos Kis, 200000
+LÃ¡szlÃ³ Nagy, 200000
+Marika HorvÃ¡t, 200000
