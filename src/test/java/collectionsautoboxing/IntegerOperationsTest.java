@@ -37,4 +37,12 @@ class IntegerOperationsTest {
         assertEquals(m.get('a'), 2);
     }
 
+    //házi tesztelése
+
+    @Test
+    public void testCreateList() {
+        IntegerOperations io = new IntegerOperations();
+        assertEquals(5, io.createList(6, 5, 4, 5, 3).size());
+    }
+
 }
