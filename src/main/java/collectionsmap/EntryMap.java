@@ -2,16 +2,18 @@ package collectionsmap;
 
 import java.time.LocalDate;
 
-public class Entry {
+public class EntryMap {
 
     private String ip;
-    private String login;
     private LocalDate entryDay;
+    private String login;
 
-    public Entry(String ip, String login, LocalDate entryDay) {
+    //192.168.0.1 2021.02.06 vezérürü11 valahogy így néz ki a söveges file
+
+    public EntryMap(String ip, LocalDate entryDay, String login) {
         this.ip = ip;
-        this.login = login;
         this.entryDay = entryDay;
+        this.login = login;
     }
 
     public String getIp() {
