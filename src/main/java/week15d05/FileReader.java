@@ -27,13 +27,7 @@ public class FileReader {
             while ((line = br.readLine()) != null) {
                 List<String> value = Arrays.asList(line.split(","));
                 List<String> houses = List.of(value.get(5), value.get(6), value.get(7), value.get(8), value.get(9), value.get(10), value.get(11), value.get(12));
-                for (String house : houses) {
-                    if (!houses.isEmpty()) {
-                        System.out.println(houses);
-                    }
-                }
-                House h = new House(houses.toString());
-                return h;
+                System.out.println(houses);
             }
         } catch(IOException ioe){
             throw new IllegalArgumentException("File not found!", ioe);
@@ -45,16 +39,6 @@ public class FileReader {
     public static void main(String[] args) {
         FileReader fr = new FileReader(Arrays.asList(new House("akármi")));
         fr.findTheHouse();
-        //ezt adja vissza, az értéket nem jól állítottam be mindig az első sort rakja be.
-        //[attacker_1, attacker_2, attacker_3, attacker_4, defender_1, defender_2, defender_3, defender_4]
-        //[attacker_1, attacker_2, attacker_3, attacker_4, defender_1, defender_2, defender_3, defender_4]
-        //[attacker_1, attacker_2, attacker_3, attacker_4, defender_1, defender_2, defender_3, defender_4]
-        //[attacker_1, attacker_2, attacker_3, attacker_4, defender_1, defender_2, defender_3, defender_4]
-        //[attacker_1, attacker_2, attacker_3, attacker_4, defender_1, defender_2, defender_3, defender_4]
-        //[attacker_1, attacker_2, attacker_3, attacker_4, defender_1, defender_2, defender_3, defender_4]
-        //[attacker_1, attacker_2, attacker_3, attacker_4, defender_1, defender_2, defender_3, defender_4]
-        //[attacker_1, attacker_2, attacker_3, attacker_4, defender_1, defender_2, defender_3, defender_4]
-
     }
 
     /*
