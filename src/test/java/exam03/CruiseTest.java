@@ -23,7 +23,7 @@ public class CruiseTest {
         assertEquals(LocalDate.of(2021, 1, 1), cruise.getSailing());
         assertEquals(100_000, cruise.getBasicPrice());
     }
-
+/*
     @Test
     void bookPassenger() {
         cruise.bookPassenger(new Passenger("John Doe", CruiseClass.LUXURY));

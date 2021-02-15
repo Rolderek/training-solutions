@@ -10,7 +10,7 @@ public class Cruise {
 private Boat boat;
 private LocalDate sailing;
 private double basicPrice;
-private List<Passenger> passengers;
+private List<Passenger> passengers = new ArrayList<>();
 
 
     public Cruise(Boat boat, LocalDate sailing, double basicPrice) {
@@ -38,18 +38,22 @@ private List<Passenger> passengers;
 
 
     public Cruise bookPassenger(Passenger passenger) {
-        Cruise c;
-
-            if (c.getPassengers().size() < c.getBoat().getMaxPassengers()) {
-
-                return p;
+        Cruise c = new Cruise((new Boat("Titanic", 3)),(LocalDate.of(2020, Month.FEBRUARY, 15)), 10000);
+            if (c.passengers.size() < c.boat.getMaxPassengers()) {
+                c.passengers.add(passenger);
+                System.out.println(c.passengers.size());
+                return c;
             }
-            return p;
+            return c;
     }
+
+
 
     public static void main(String[] args) {
         Cruise c = new Cruise((new Boat("Titanic", 3)),(LocalDate.of(2020, Month.FEBRUARY, 15)), 10000);
-        c.bookPassenger((new Passenger("Laci", CruiseClass.LUXURY)));
+        c.passengers.add((new Passenger("Laci", CruiseClass.LUXURY)));
+        Passenger p = new Passenger("Pisti", CruiseClass.SECOND);
+        //c.bookPassenger(c.bookPassenger(p));
     }
 
 

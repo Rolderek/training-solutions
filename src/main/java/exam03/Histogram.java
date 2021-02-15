@@ -11,7 +11,10 @@ public class Histogram {
             String line;
             while ((line = reader.readLine()) != null) {
                 int num = Integer.parseInt(line);
-                result.append("*".repeat(Math.max(0, num))).append("\n");
+                for (int i = 1; i <= num; i++) {
+                    result.append("*");
+                }
+                result.append("\n");
             }
             return result.toString();
         } catch (IOException ioe) {
