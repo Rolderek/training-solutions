@@ -29,6 +29,9 @@ public class House {
     public String toString() {
         return "˙(Name: " + name + " Battle: " + battle + ")";
     }
+
+
+
 }
 
 
