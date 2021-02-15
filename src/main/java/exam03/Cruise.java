@@ -1,6 +1,8 @@
 package exam03;
 
 import java.time.LocalDate;
+import java.time.Month;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cruise {
@@ -33,11 +35,23 @@ private List<Passenger> passengers;
     public List<Passenger> getPassengers() {
         return passengers;
     }
-/*
-    public boolean bookPassenger(Passenger passenger) {
-        if ()
+
+
+    public Cruise bookPassenger(Passenger passenger) {
+        Cruise c;
+
+            if (c.getPassengers().size() < c.getBoat().getMaxPassengers()) {
+
+                return p;
+            }
+            return p;
     }
-*/
+
+    public static void main(String[] args) {
+        Cruise c = new Cruise((new Boat("Titanic", 3)),(LocalDate.of(2020, Month.FEBRUARY, 15)), 10000);
+        c.bookPassenger((new Passenger("Laci", CruiseClass.LUXURY)));
+    }
+
 
 
 }
