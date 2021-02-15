@@ -2,8 +2,7 @@ package exam03;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Cruise {
 
@@ -36,16 +35,60 @@ private List<Passenger> passengers = new ArrayList<>();
         return passengers;
     }
 
-
-    public Cruise bookPassenger(Passenger passenger) {
-        Cruise c = new Cruise((new Boat("Titanic", 3)),(LocalDate.of(2020, Month.FEBRUARY, 15)), 10000);
-            if (c.passengers.size() < c.boat.getMaxPassengers()) {
-                c.passengers.add(passenger);
-                System.out.println(c.passengers.size());
-                return c;
-            }
-            return c;
+    public void addPassenger(Cruise c, Passenger p) {
+        c.passengers.add(p);
     }
+
+
+    public void bookPassenger(Passenger passenger) {
+            if (boat.getMaxPassengers() > passengers.size()) {
+                passengers.add(passenger);
+            } else {
+                throw new IllegalArgumentException("The boat is full, sorry.");
+            }
+    }
+
+    public double getPriceForPassenger(Passenger passenger) {
+        return passenger.getCruiseClass().getPrice() * basicPrice;
+    }
+
+    public Passenger findPassengerByName(String name) {
+        for (Passenger passenger: passengers) {
+            if (passenger.getName().equals(name) ) {
+                return passenger;
+            }
+        }
+        throw new IllegalStateException("There is no passenger with this name: " + name);
+    }
+
+    public List<String> getPassengerNamesOrdered() {
+        List<String> s = new ArrayList<>();
+        for (Passenger passenger: passengers) {
+            s.add(passenger.getName());
+        }
+        s.sort(Comparator.naturalOrder());
+        return s;
+    }
+
+    public double sumAllBookingsCharged() {
+        double income = 0.0;
+        for (Passenger passenger : passengers) {
+            income += getPriceForPassenger(passenger);
+        }
+        return income;
+    }
+
+    public Map<CruiseClass, Integer> countPassengerByClass() {
+        Map<CruiseClass, Integer> sum = new HashMap<>();
+        for (Passenger passenger: passengers) {
+            if (!sum.containsKey(passenger.getCruiseClass())) {
+                sum.put(passenger.getCruiseClass(), 0);
+            }
+            sum.put(passenger.getCruiseClass(), sum.get(passenger.getCruiseClass()) +1 );
+        }
+        return sum;
+    }
+
 
 
 
@@ -53,7 +96,8 @@ private List<Passenger> passengers = new ArrayList<>();
         Cruise c = new Cruise((new Boat("Titanic", 3)),(LocalDate.of(2020, Month.FEBRUARY, 15)), 10000);
         c.passengers.add((new Passenger("Laci", CruiseClass.LUXURY)));
         Passenger p = new Passenger("Pisti", CruiseClass.SECOND);
-        //c.bookPassenger(c.bookPassenger(p));
+        c.bookPassenger(p);
+
     }
 
 
