@@ -3,11 +3,10 @@ package week15d05;
 public class House {
 
     private String name;
-    private int battle = 0;
+    private int battle = 1;
 
     public House(String name) {
         this.name = name;
-
     }
 
     public String getName() {
@@ -24,6 +23,11 @@ public class House {
 
     public void setBattle(int battle) {
         this.battle = battle;
+    }
+
+    @Override
+    public String toString() {
+        return "˙(Name: " + name + " Battle: " + battle + ")";
     }
 }
 

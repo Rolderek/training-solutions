@@ -22,12 +22,13 @@ public class FileReader {
     public House findTheHouse() {
         House theHouse;
         String path = "C:\\training-solutions\\training-solution\\src\\main\\java\\week15d05\\olvasásra";
-        String line = "";
+        String line;
         try (BufferedReader br = new BufferedReader(new java.io.FileReader(path))) {
             while ((line = br.readLine()) != null) {
                 List<String> value = Arrays.asList(line.split(","));
                 List<String> houses = List.of(value.get(5), value.get(6), value.get(7), value.get(8), value.get(9), value.get(10), value.get(11), value.get(12));
-                System.out.println(houses);
+                lineToList(houses);
+                theHouse(houses);
             }
         } catch(IOException ioe){
             throw new IllegalArgumentException("File not found!", ioe);
@@ -36,22 +37,45 @@ public class FileReader {
         return hh;
         }
 
+        public List<String> lineToList(List<String> houses) {
+        List<String> házakhoz = new ArrayList<>();
+        for (int i =0; i < houses.size(); i++) {
+            if (houses.get(i) != null || houses.get(i).isEmpty()) {
+                házakhoz.add(houses.get(i));
+            }
+        }
+            System.out.println(házakhoz);
+        return házakhoz;
+        }
+
+        public List<House> theHouse(List<String> házakhoz) {
+            List<House> theOne = new ArrayList<>();
+            House oneHouse = new House("");
+            int count = 0;
+            String name = "";
+            for (int i = 0; i < házakhoz.size(); i++) {
+                if (házakhoz.get(i) == null || házakhoz.get(i).isEmpty()) {
+                }
+                theOne.add(new House(házakhoz.get(i).toString()));
+                List<House> copy = new ArrayList<>(theOne);
+                for (int j = 0; j < copy.size(); j++) {
+                }
+
+            }
+            System.out.println(theOne.toString());
+            return theOne;
+        }
+
+
+
+
     public static void main(String[] args) {
         FileReader fr = new FileReader(Arrays.asList(new House("akármi")));
         fr.findTheHouse();
+
     }
 
-    /*
-    public House houseCounter(List<House> houses) {
-        House theHouse;
-        for (int i = 0; i < houses.size(); i++) {
-
-        }
-    }
-
-     */
-
-    /*
+     //másé alul csak tanulmányozni
 
     public Map.Entry<String, Integer> mostIdiotsHouse(String fileName) {
         Map<String, Integer> idiots = new HashMap<>();
@@ -95,12 +119,5 @@ public class FileReader {
         }
         result.replace(idiot, result.get(idiot) + 1);
     }
-
-}
-
-     */
-
-
-
 
 }
