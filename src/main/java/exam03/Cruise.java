@@ -61,6 +61,20 @@ private List<Passenger> passengers = new ArrayList<>();
         throw new IllegalStateException("There is no passenger with this name: " + name);
     }
 
+    /*
+    public Passenger findPassengerByNameFor(String name) {
+        Passenger p = new Passenger("a", CruiseClass.SECOND);
+        for (int i = 0; i < passengers.size(); i++) {
+            if (passengers.get(i).getName().equals(name)) {
+                p.setName(passengers.get(i).getName());
+                p.setCruiseClass(passengers.get(i).getCruiseClass());
+            }
+        }
+        return p;
+    }
+
+     */
+
     public List<String> getPassengerNamesOrdered() {
         List<String> s = new ArrayList<>();
         for (Passenger passenger: passengers) {
