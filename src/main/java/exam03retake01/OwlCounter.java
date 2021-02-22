@@ -7,22 +7,23 @@ import java.util.Map;
 
 public class OwlCounter {
 
-    private Map<String, Integer> owlsByCounty = new HashMap<>();
+    private Map<String, Integer> o = new HashMap<>();
 
-    public void readFromFile(BufferedReader reader) {
-        try (reader) {
+    public void readFromFile(BufferedReader r) {
+        try (r) {
             String line;
-            while ((line = reader.readLine()) != null) {
-                String[] temp = line.split("=");
-                owlsByCounty.put(temp[0], Integer.parseInt(temp[1]));
+            while ((line = r.readLine()) != null) {
+                String[] sep = line.split("=");
+                o.put(sep[0], Integer.parseInt(sep[1]));
             }
-        } catch (IOException ioe) {
-            throw new IllegalStateException("Cannot read file.", ioe);
+        }
+        catch (IOException ioe) {
+            throw new IllegalStateException("Can not read file!", ioe);
         }
     }
 
-    public int getNumberOfOwls(String county) {
-        return owlsByCounty.get(county);
+    public Integer getNumberOfOwls(String country) {
+        return o.get(country);
     }
 
 
