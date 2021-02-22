@@ -16,8 +16,7 @@ public class OwlCounter {
                 String[] sep = line.split("=");
                 o.put(sep[0], Integer.parseInt(sep[1]));
             }
-        }
-        catch (IOException ioe) {
+        } catch (IOException ioe) {
             throw new IllegalStateException("Can not read file!", ioe);
         }
     }
@@ -25,26 +24,4 @@ public class OwlCounter {
     public Integer getNumberOfOwls(String country) {
         return o.get(country);
     }
-
-
-/*
-    private Map<String, Integer> oByC = new HashMap<>();
-
-    public void readFromFile(BufferedReader reader) {
-        try (reader) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] s = line.split("=");
-                oByC.put(s[0], Integer.parseInt(s[1]));
-            }
-        } catch (IOException ioe) {
-            throw new IllegalStateException("Cant read file!", ioe);
-        }
-    }
-
-    public int getNumberOfOwls(String country) {
-        return getNumberOfOwls(country);
-    }
-
- */
 }
