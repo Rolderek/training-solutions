@@ -1,19 +1,19 @@
 package exam03retake01;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Before;
+import org.junit.Test;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class MailBoxTest {
 
     MailBox mailBox = new MailBox();
 
-    @BeforeEach
+    @Before
     void init() {
         Mail mail1 = new Mail(new Contact("John Doe", "johndoe@example.com"),
                 List.of(new Contact("Jane Doe", "janedoe@example.com"), new Contact("Jack Doe", "jackdoe@example.com")),

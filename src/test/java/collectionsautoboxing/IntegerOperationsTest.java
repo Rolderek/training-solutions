@@ -1,13 +1,15 @@
 package collectionsautoboxing;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+
 
 class IntegerOperationsTest {
 
@@ -34,7 +36,7 @@ class IntegerOperationsTest {
         m.put('a', 1);
         //int j = m.get('a') ++; e helyett az alsó
         m.put('a', m.get('a') + 1);
-        assertEquals(m.get('a'), 2);
+        assertEquals(java.util.Optional.ofNullable(m.get('a')), 2);
     }
 
     //házi tesztelése

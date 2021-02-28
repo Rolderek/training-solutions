@@ -1,12 +1,15 @@
 package collectionsmap;
 
-import org.junit.jupiter.api.Test;
+
+
+import org.junit.Test;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+
 
 class MapTest {
 

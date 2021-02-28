@@ -1,10 +1,9 @@
 package week10d02;
 
-import org.junit.jupiter.api.Test;
-
+import org.junit.Test;
+import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 class MaxTravelTest {
 

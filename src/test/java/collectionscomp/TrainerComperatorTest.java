@@ -1,11 +1,13 @@
 package collectionscomp;
 
-import org.junit.jupiter.api.Test;
+
+
+import org.junit.Test;
 
 import java.text.Collator;
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
 class TrainerComperatorTest {
 

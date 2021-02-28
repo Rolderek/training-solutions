@@ -1,12 +1,14 @@
 package exam03;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class HistogramTest {
 

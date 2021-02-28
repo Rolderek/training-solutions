@@ -1,13 +1,14 @@
 package searching;
 
-import org.junit.jupiter.api.Test;
 
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 class TrainerTest {
 
@@ -35,8 +36,8 @@ class TrainerTest {
         assertEquals(3, (i.indexOf(6)));
         assertEquals(-1, (i.indexOf(20)));
 
-        assertEquals(1, (Collections.min(i)));
-        assertEquals(12, (Collections.max(i)));
+        assertEquals(java.util.Optional.of(1), (Collections.min(i)));
+        assertEquals(java.util.Optional.of(12), (Collections.max(i)));
 
         List<Trainer> trainers = Arrays.asList(new Trainer("Jhon", 3),
                 new Trainer("Jack", 2),

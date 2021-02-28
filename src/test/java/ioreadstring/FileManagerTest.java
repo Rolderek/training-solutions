@@ -1,8 +1,7 @@
 package ioreadstring;
 
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 class FileManagerTest {
     //ez a sor is másolás, mert nem tudtam eddig hogy hogy is kell

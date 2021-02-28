@@ -1,14 +1,14 @@
 package properties;
 
-import org.junit.jupiter.api.Test;
-
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Writer;
 import java.util.Properties;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 class PropertiesTest {
 

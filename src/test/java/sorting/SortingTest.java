@@ -1,12 +1,9 @@
 package sorting;
 
-import org.junit.jupiter.api.Test;
-import searching.Trainer;
-
-import javax.swing.*;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class SortingTest {
 
@@ -21,7 +18,7 @@ class SortingTest {
     public void testSortList() {
         List<Integer> i = Arrays.asList(3, 1, 6, 9 ,5 ,3);
         Collections.sort(i);
-        assertEquals(5, i.get(3));
+        assertEquals(Optional.of(5), i.get(3));
 
         i = Arrays.asList(3, 1, 6, 9 ,5 ,3);
         i.sort(new Comparator<Integer>() {

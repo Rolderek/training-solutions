@@ -1,13 +1,11 @@
 package week12d05;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.nio.file.Path;
-
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.Arrays;
+import java.util.List;
+import static org.junit.Assert.*;
 
 class CovidTest {
 

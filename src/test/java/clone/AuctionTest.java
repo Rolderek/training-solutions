@@ -1,10 +1,13 @@
 package clone;
 
-import org.junit.jupiter.api.Test;
+
+
+import org.junit.Test;
 
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+
 
 class AuctionTest {
 

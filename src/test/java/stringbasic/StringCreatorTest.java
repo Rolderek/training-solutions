@@ -1,10 +1,8 @@
 package stringbasic;
 
+import org.junit.Test;
 
-import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.*;
 
 public class StringCreatorTest {
 

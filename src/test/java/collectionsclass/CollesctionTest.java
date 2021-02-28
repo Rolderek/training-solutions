@@ -1,10 +1,13 @@
 package collectionsclass;
 
-import org.junit.jupiter.api.Test;
+
+
+import org.junit.Test;
 
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+
 
 class CollesctionTest {
 
@@ -45,10 +48,10 @@ class CollesctionTest {
         l.add(4);
         Collections.shuffle(l, random);
         System.out.println(l);
-        assertEquals(4, l.get(0));
-        assertEquals(1, l.get(1));
-        assertEquals(2, l.get(2));
-        assertEquals(3, l.get(3));
+        assertEquals(Optional.of(4), l.get(0));
+        assertEquals(Optional.of(1), l.get(1));
+        assertEquals(Optional.of(2), l.get(2));
+        assertEquals(Optional.of(3), l.get(3));
     }
 
 }

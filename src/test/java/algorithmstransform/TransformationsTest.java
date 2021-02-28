@@ -1,13 +1,12 @@
 package algorithmstransform;
 
-import introexception.TrainerAgeValidator;
-import org.junit.jupiter.api.Test;
 
-import java.sql.ClientInfoStatus;
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
 class TransformationsTest {
 
