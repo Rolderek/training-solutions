@@ -1,6 +1,5 @@
 package lambdacomparator;
 
-import org.springframework.aop.target.LazyInitTargetSource;
 
 import java.util.ArrayList;
 import java.util.Collections;

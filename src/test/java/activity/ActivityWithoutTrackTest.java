@@ -1,11 +1,11 @@
 package activity;
 
 
-import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
 
 public class ActivityWithoutTrackTest {
+
+    /*
 
     ActivityWithoutTrack activityWithoutTrack = new ActivityWithoutTrack(ActivityType.BASKETBALL);
 
@@ -18,6 +18,6 @@ public class ActivityWithoutTrackTest {
     public void testGetType() {
         assertEquals(ActivityType.BASKETBALL, activityWithoutTrack.getType());
     }
-
+*/
 
 }

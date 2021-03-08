@@ -1,13 +1,11 @@
 package jdbc;
 
 
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
-import org.flywaydb.core.Flyway;
 
 import java.util.List;
 
 public class EmployeesMain {
-
+/*
     public static void main(String[] args) {
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl("jdbc:mysql://localhost:3306/employees?useUnicode=true");
@@ -19,7 +17,7 @@ public class EmployeesMain {
 
         flyway.clean();
         flyway.migrate();
-/*
+//
         EmployeesDao employeesDao = new EmployeesDao(dataSource);
         employeesDao.createEmployee("Jane Doe");
 
@@ -31,7 +29,7 @@ public class EmployeesMain {
 
  */
     }
-}
+
 
 /*
         //a datasource kizárólag a kapcsolódási paramétereket tartalmazza

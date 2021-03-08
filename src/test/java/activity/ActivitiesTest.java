@@ -2,16 +2,12 @@ package activity;
 
 
 
-import org.junit.Test;
-
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
 
 public class ActivitiesTest {
-
+/*
         Track track = new Track();
 
         Activities activities = new Activities(Arrays.asList(
@@ -51,5 +47,7 @@ public class ActivitiesTest {
         }
 
 
+
+ */
 
     }
