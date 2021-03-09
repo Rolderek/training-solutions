@@ -1,9 +1,10 @@
 package jdbc;
 
 import javax.sql.DataSource;
+
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Collections;
+
 import java.util.List;
 
 public class EmployeesDao {
@@ -14,45 +15,7 @@ public class EmployeesDao {
         this.dataSource = dataSource;
     }
 
-    public long createEmployee(String name) {
-        try (
-                Connection conn = dataSource.getConnection();
-                PreparedStatement stmt =
-                        conn.prepareStatement("insert into employees(emp_name) values (?)",
-                                Statement.RETURN_GENERATED_KEYS)) {
-            stmt.setString(1, name);
-            stmt.executeUpdate();
-
-            return getIdByStatement(stmt);
-        }
-        catch (SQLException se) {
-            throw new IllegalStateException("Cannot insert");
-        }
-    }
-
-    public void createEmployees(List<String> names) {
-        try (Connection conn = dataSource.getConnection()) {
-            conn.setAutoCommit(false);
-
-            try (PreparedStatement stmt = conn.prepareStatement("insert into employees(emp_name) values (?)")) {
-                for (String name: names) {
-                    if (name.startsWith("x")) {
-                        throw new IllegalArgumentException("Invalid name");
-                    }
-                    stmt.setString(1, name);
-                    stmt.executeUpdate();
-                }
-                conn.commit();
-            }
-            catch (IllegalArgumentException iae) {
-                conn.rollback();
-            }
-        } catch (SQLException sqle) {
-            throw new IllegalStateException("Cannot insert", sqle);
-        }
-    }
-
-    private long getIdByStatement(PreparedStatement stmt)  {
+    private long getIdByStatement(PreparedStatement stmt) { //alatta van a metódus ami használja
         try (
                 ResultSet rs = stmt.getGeneratedKeys()
         )
@@ -62,8 +25,22 @@ public class EmployeesDao {
             }
             throw new IllegalStateException("Cannot get id");
         }
-        catch (SQLException sqle) {
-            throw new IllegalStateException("Cannot get id", sqle);
+        catch (SQLException se) {
+            throw new IllegalStateException("Cannot get id", se);
+        }
+    }
+
+    public Long createEmployee(String name) {
+        try (
+                Connection conn = dataSource.getConnection();
+                PreparedStatement stmt =
+                        conn.prepareStatement("insert into employees(emp_name) values (?)", Statement.RETURN_GENERATED_KEYS)) {
+            stmt.setString(1, name);
+            stmt.executeUpdate();
+
+            return getIdByStatement(stmt);
+        } catch (SQLException se) {
+            throw new IllegalStateException("Cannot insert", se);
         }
     }
 
@@ -79,51 +56,8 @@ public class EmployeesDao {
                 names.add(name);
             }
             return names;
-        }
-        catch (SQLException se) {
-            throw new IllegalStateException("Cannot select employees", se);
-        }
-    }
-
-    public List<String> listOddEmployeeNames() {
-        try (
-                Connection conn = dataSource.getConnection();
-                Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-                        ResultSet.CONCUR_READ_ONLY);
-                ResultSet rs = stmt.executeQuery("select emp_name from employees order by emp_name")
-        ) {
-            if (!rs.next()) {
-                return Collections.emptyList();
-            }
-            List<String> names = new ArrayList<>();
-            names.add(rs.getString("emp_name"));
-            while (rs.relative(2)) {
-                names.add(rs.getString("emp_name"));
-            }
-            return names;
-
         } catch (SQLException se) {
-            throw new IllegalStateException("Cannot list names", se);
-        }
-    }
-
-    public void updateNames() {
-        try (
-                Connection conn = dataSource.getConnection();
-                Statement stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-                        ResultSet.CONCUR_UPDATABLE);
-                ResultSet rs = stmt.executeQuery("select id, emp_name from employees")
-        ) {
-            while (rs.next()) {
-                String name = rs.getString("emp_name");
-                if (!name.startsWith("Jane")) {
-                    rs.updateString("emp_name", "Mr. " + name);
-                    rs.updateRow();
-                }
-            }
-        }
-        catch (SQLException se) {
-            throw new IllegalStateException("Cannot update names", se);
+            throw new IllegalStateException("Cannot select employees", se);
         }
     }
 
@@ -131,24 +65,51 @@ public class EmployeesDao {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement("select emp_name from employees where id = ?");
         ) {
-            ps.setLong(1, id);
+            ps.setLong(1, id); // a paraméterül kapott id-t keresi meg nem pedig beégetett adatot
 
             return selectNameByPreparedStatement(ps);
-        }
-        catch (SQLException sqle) {
-            throw new IllegalStateException("Cannot query", sqle);
+        } catch (SQLException se) {
+            throw new IllegalStateException("Cannot query", se);
         }
     }
 
+
     private String selectNameByPreparedStatement(PreparedStatement ps) {
-        try (ResultSet rs = ps.executeQuery()) {
+        try  (ResultSet rs = ps.executeQuery()) {
             if (rs.next()) {
                 String name = rs.getString("emp_name");
                 return name;
             }
-            throw new IllegalArgumentException("Not found");
-        } catch (SQLException sqle) {
-            throw new IllegalStateException("Cannot query", sqle);
+            throw new IllegalArgumentException("Not found"); //ha nem talál ilyen azonosítóval semmit akkor ezt írja ki, nekünk könnyebség
+        } catch (SQLException se) {
+            throw new IllegalStateException("Cannot query", se);
         }
     }
+
+    //ACID
+    public void createEmployees(List<String> names) {
+        try ( Connection conn = dataSource.getConnection()) {
+            conn.setAutoCommit(false); // ez teszi lehetővé hogy ne minden egyes utasítás után legyen commit, hanem egy blokkban legyen ami ez után van
+
+            try( PreparedStatement stmt = conn.prepareStatement("insert into employees(emp_name) values (?)")) {
+                for (String name: names) {
+                    if (name.startsWith("x")) {
+                        throw new IllegalArgumentException("Invalid name");
+                    }
+                    stmt.setString(1, name);
+                    stmt.executeUpdate();
+                }
+                conn.commit(); //itt hajtódik végre a ranzakció és a mentés
+            }
+            catch (IllegalArgumentException iae) { //ha a megadott feltétel hibára fut akkor kell rollback, ilyenkor az összes tétel nem kerül beszúrásra nem csak a hibás tételek nem
+                conn.rollback();
+            }
+        }catch (SQLException se) {
+            throw new IllegalStateException("Cannot insert", se);
+        }
+
+
+    }
 }
+
+
