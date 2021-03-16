@@ -48,7 +48,7 @@ public class EmployeesDao {
         try (
                 Connection conn = dataSource.getConnection();
                 Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("select emp_name from employees")
+                ResultSet rs = stmt.executeQuery("select emp_name from employees order by emp_name")
         ) {
             List<String> names = new ArrayList<>();
             while (rs.next()) {

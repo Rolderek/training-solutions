@@ -17,8 +17,9 @@ public class ArraySelector {
         }
         return result;
     }
-//ez a szégyen a sajátom sajnos...
-    /*public String selectEvens(int[] numbers) {
+
+    /*
+     public String selectEvens(int[] numbers) {
         int sum = 0;
         for (int i = 0; i < numbers.length; i = i +2 ) {
             sum += numbers[i];

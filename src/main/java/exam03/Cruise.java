@@ -102,18 +102,4 @@ private List<Passenger> passengers = new ArrayList<>();
         }
         return sum;
     }
-
-
-
-
-    public static void main(String[] args) {
-        Cruise c = new Cruise((new Boat("Titanic", 3)),(LocalDate.of(2020, Month.FEBRUARY, 15)), 10000);
-        c.passengers.add((new Passenger("Laci", CruiseClass.LUXURY)));
-        Passenger p = new Passenger("Pisti", CruiseClass.SECOND);
-        c.bookPassenger(p);
-
-    }
-
-
-
 }

@@ -7,7 +7,7 @@ public class WordCounterMain {
             System.out.println("0");
         }
         else {
-            System.out.println(new WordCouter().numberOfWords(args[0]));
+          //  System.out.println(new WordCouter().numberOfWords(args[0]));
         }
     }
 }

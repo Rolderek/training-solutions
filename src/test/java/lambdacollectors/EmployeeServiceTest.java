@@ -1,11 +1,11 @@
 package lambdacollectors;
 
-import junit.framework.TestCase;
+
 import org.junit.Assert;
 import org.junit.Test;
-import org.springframework.aop.target.LazyInitTargetSource;
 
-import java.awt.*;
+
+
 import java.util.*;
 import java.util.List;
 import java.util.stream.Collectors;

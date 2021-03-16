@@ -16,6 +16,98 @@ public class MailBox {
         return mails;
     }
 
+    private List<Mail> startWithFrom(String search) {
+        List<Mail> resultList = new ArrayList<>();
+        String s = search.substring(5);
+        for (Mail m : mails) {
+            if (m.getFrom().getEmail().contains(s) || m.getFrom().getName().contains(s)) {
+                resultList.add(m);
+            }
+        }
+        return resultList;
+    }
+
+    private List<Mail> startWithTo(String search) {
+        List<Mail> resultList = new ArrayList<>();
+        String s = search.substring(3);
+        for (Mail m : mails) {
+            for (Contact c : m.getTo()) {
+                if (c.getName().contains(s) || c.getEmail().contains(s)) {
+                    resultList.add(m);
+                }
+            }
+        }
+        return resultList;
+    }
+
+    private List<Mail> searchMessageAndSubject(String search) {
+        List<Mail> resultList = new ArrayList<>();
+        for (Mail m: mails) {
+            if (m.getSubject().contains(search) || m.getMessage().contains(search)) {
+                resultList.add(m);
+            }
+        }
+        return resultList;
+    }
+
+    public List<Mail> findByCriteria(String search) {
+        List<Mail> searchList = new ArrayList<>();
+        if (search.startsWith("from:")) {
+            searchList = startWithFrom(search);
+        }
+        if(search.startsWith("to:")) {
+            searchList = startWithTo(search);
+        }
+        if (searchList.size() <= 0) {
+            searchList = searchMessageAndSubject(search);
+        }
+        return searchList;
+}
+
+    public static void main(String[] args) {
+        MailBox mailBox = new MailBox();
+        Mail mail1 = new Mail(new Contact("John Doe", "johndoe@example.com"),
+                List.of(new Contact("Jane Doe", "janedoe@example.com"), new Contact("Jack Doe", "jackdoe@example.com")),
+                "Doe Family",
+                "Hi All!");
+
+        Mail mail2 = new Mail(new Contact("John Doe", "johndoe@example.com"),
+                List.of(new Contact("John Smith", "johnsmith@example.com")),
+                "Johnes",
+                "Hi!");
+
+        Mail mail3 = new Mail(new Contact("John Doe", "johndoe@example.com"),
+                List.of(new Contact("Jane Smith", "janesmith@example.com")),
+                "John - Jane",
+                "Hello!");
+
+        Mail mail4 = new Mail(new Contact("Jane Doe", "janedoe@example.com"),
+                List.of(new Contact("John Doe", "johndoe@example.com"), new Contact("Jack Doe", "jackdoe@example.com")),
+                "RE: Doe Family",
+                "Rerere!");
+
+        mailBox.addMail(mail1);
+        mailBox.addMail(mail2);
+        mailBox.addMail(mail3);
+        mailBox.addMail(mail4);
+
+        System.out.println(mailBox.findByCriteria("Rerere").toString());
+    }
+
+
+    /*
+
+    private List<Mail> mails = new ArrayList<>();
+
+    public List<Mail> addMail(Mail mail) {
+        mails.add(mail);
+        return mails;
+    }
+
+    public List<Mail> getMails() {
+        return mails;
+    }
+
     public String cuttedSearch(String search) {
         String cutted = "";
         if (search.startsWith("to:")) {

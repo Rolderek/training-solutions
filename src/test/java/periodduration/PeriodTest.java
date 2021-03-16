@@ -2,7 +2,6 @@ package periodduration;
 
 import junit.framework.TestCase;
 import org.junit.Test;
-import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
 import java.time.Period;

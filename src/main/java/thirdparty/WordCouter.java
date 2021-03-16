@@ -5,11 +5,16 @@ import com.google.common.base.Splitter;
 
 public class WordCouter {
 
+    /*
     public int numberOfWords(String s) {
         return Splitter.on(CharMatcher.anyOf(" ,."))
                 .trimResults()
                 .omitEmptyStrings()
-                .splitToList(s)
+                .split(s)
                 .size();
     }
+
+     */
+
+
 }

@@ -31,4 +31,6 @@ public class Mail {
     public String getMessage() {
         return message;
     }
+
+
 }

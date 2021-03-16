@@ -39,7 +39,7 @@ public class CityOperations {
 
     public static void main(String[] args) {
         try (BufferedReader bf =
-                     Files.newBufferedReader(Path.of("iranyitoszamok-varosok-2021.csv"))) {
+                     Files.newBufferedReader(Path.of("covid/iranyitoszamok-varosok-2021.csv"))) {
             String city = new CityOperations().findCityWithMaxLength(bf);
         } catch (IOException ioe) {
             throw new IllegalStateException("Can not read file", ioe);

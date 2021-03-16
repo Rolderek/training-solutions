@@ -2,16 +2,17 @@ package jdbc;
 
 
 
+
+
+
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import org.flywaydb.core.Flyway;
+import org.mariadb.jdbc.MariaDbDataSource;
 
 
-import java.util.List;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
+import java.util.List;
+
 
 public class EmployeesMain {
 
@@ -24,11 +25,21 @@ public class EmployeesMain {
 
 
     public static void main(String[] args) {
+        MariaDbDataSource dataSource;
+        try {
+            dataSource = new MariaDbDataSource();
+            dataSource.setUrl("jdbc:mysql://localhost:3306/employees?useUnicode=true");
+            dataSource.setUser("employees");
+            dataSource.setPassword("employees");
+        } catch (SQLException se) {
+            throw new IllegalStateException("Can not create data source", se);
+        }
+        /*
         MysqlDataSource dataSource = new MysqlDataSource();
         dataSource.setUrl("jdbc:mysql://localhost:3306/employees?useUnicode=true");
         dataSource.setUser("employees");
         dataSource.setPassword("employees");
-
+*/
         Flyway flyway = new Flyway();
         flyway.setDataSource(dataSource);
 
@@ -44,9 +55,6 @@ public class EmployeesMain {
 
         String name = employeesDao.findEmployeeNameById(1L);
         System.out.println(name);
-
-
-
 
     }
 }
